@@ -1,0 +1,9 @@
+timm==1.0.25
+einops
+PyYAML
+pandas
+tqdm
+opencv-python-headless
+jpeg4py
+numpy
+scipy

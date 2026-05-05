@@ -1,0 +1,11 @@
+data/
+models/
+outputs/
+__pycache__/
+*.pyc
+*.mp4
+*.jpg
+*.tar
+.ipynb_checkpoints/
+wheels/
+Mamba_wheel/

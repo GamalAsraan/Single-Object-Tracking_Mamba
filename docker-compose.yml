@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  trackingmamba-infer:
+    build: .
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - PYTHONPATH=/app
+    volumes:
+      - ./models:/models:ro
+      - ./outputs:/outputs
+      - ./data:/data:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    # Default behavior:
+    command: python -m runtime.infer_manifest --help
+
+    # =========================================================================
+    # Example command for full AIC dataset batch inference:
+    # =========================================================================
+    # command: python -m runtime.infer_manifest \
+    #   --manifest /data/metadata/contestant_manifest.json \
+    #   --sample-sub /data/metadata/sample_submission.csv \
+    #   --video-root /data \
+    #   --checkpoint /models/TrackingMamba_best.pth.tar \
+    #   --output /outputs/submission.csv \
+    #   --source video

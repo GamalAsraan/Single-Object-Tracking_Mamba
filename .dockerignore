@@ -1,0 +1,11 @@
+.git
+.github
+*.pyc
+__pycache__
+outputs/
+.ipynb_checkpoints
+models/
+data/
+*.mp4
+*.jpg
+*.tar
